@@ -9,6 +9,7 @@ namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {
+        private DB context = new dhqgEntities();
         public ActionResult Index()
         {
             return View();
@@ -30,10 +31,12 @@ namespace WebApplication1.Controllers
         public ActionResult Lists()
         {
             using (var context = new dhqgEntities())
-            {
-                
+            {              
                 ViewBag.list = context.tbl_TaiKhoan.ToList();
             }
+
+            //context.tbl_taikhoan.first().username = "thanh";
+            //context.savechanges();
             return View();
         }
     }
